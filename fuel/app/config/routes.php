@@ -7,10 +7,15 @@ return array(
     'acces' => 'acces',
     'acces/(:any)' => 'acces/$1',
     'connexion' => 'acces/connexion',
-    'identifiants_perdus' => 'acces/identifiants_perdus',
+    'identifiants-perdus' => 'acces/identifiants_perdus',
     'inscription' => 'acces/inscription',
     'deconnexion' => 'acces/deconnexion',
 
+    // Admin
+    'admin' => 'admin',
+    'admin/(:segment)/(:num)' => 'admin/$1/index/$2', // Pagination de l'admin
+    'admin/(:any)' => 'admin/$1',
+    
      // Email
     'email' => 'email',
     'email/(:any)' => 'email/$1',

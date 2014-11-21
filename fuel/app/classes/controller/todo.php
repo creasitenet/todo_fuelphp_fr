@@ -42,7 +42,7 @@ class Controller_Todo extends Controller_Base {
                 $e = Model_Todo::forge(array(
                     'texte' => $texte,
                     'user_id' => $user_id,
-                    'fini' => '0',
+                    'statut' => '0',
                 ));
                 if ($e and $e->save()) {
                     $d["resultat"] =  1;
@@ -59,7 +59,7 @@ class Controller_Todo extends Controller_Base {
     
     // Maj statut. Ajax. Retour Html.
     public function action_ajax_ajouter_a_la_liste($id) {
-        $data['e'] = Model_Todo::find($id);
+        $data['t'] = Model_Todo::find($id);
         $d=View::forge('todo/ajax_ajouter_a_la_liste', $data);
         return $d;
     }
@@ -70,19 +70,19 @@ class Controller_Todo extends Controller_Base {
         if (Input::method() == 'POST') {
             $id = $_POST['id'];
             $e = Model_Todo::find($id);
-            if ($e->fini==1) {
-                $fini=0;
+            if ($e->statut==1) {
+                $statut=0;
             } else {
-                $fini=1;
+                $statut=1;
             }
             $up=DB::update('todos')
-               ->value("fini", $fini)
+               ->value("statut", $statut)
                ->where('id', '=', $id)
                ->execute();
-            $d["resultat"] =  $fini;
-            if ($fini==1) {
+            $d["resultat"] =  $statut;
+            if ($statut==1) {
                 $d["message"] =  "La tâche est finie.";
-            } elseif ($fini==0) {
+            } elseif ($statut==0) {
                 $d["message"] =  "La tâche est à faire.";
             }
         } 

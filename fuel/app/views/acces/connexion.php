@@ -1,17 +1,17 @@
+<div class="row">  
 
- <!--=== Content Part ===-->
-    <div class="container content">   
-      <div class="row">
-            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+    <div class="col-sm-8 col-sm-offset-2">
 
-                 <?php echo Form::open(); ?>
+        <h2>Connectez vous</h2>
+        <?php echo render('_alertes'); ?>
 
-                    <div class="reg-header">            
-                        <h2>Connectez vous</h2>
-                    </div>
+        <?php echo Form::open(array("action"=>"connexion","class"=>"form","autocomplete"=>"off")); ?>
+
+            <?php if (isset($_GET['destination'])): ?>
+                <?php echo Form::hidden('destination',$_GET['destination']); ?>
+                <?php echo $_GET['destination']; ?>
+            <?php endif; ?>
                     
-                    <?php echo render('_alertes'); ?>
-
                     <div class="form-group  margin-bottom-20 <?php echo ($val->error('username')) ? 'has-error' : ''; ?>">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -21,9 +21,11 @@
                             'required'));
                             ?>
                         </div>
+                        <span class="help-block">
                         <?php if ($val->error('username')): ?>
-                        <span class="help-block"><?php echo $val->error('username')->get_message(); ?></span>
+                            <?php echo $val->error('username')->get_message(); ?>
                         <?php endif; ?>
+                        </span>
                     </div>       
                                  
                     <div class="form-group  margin-bottom-20 <?php echo ($val->error('password')) ? 'has-error' : ''; ?>">
@@ -35,26 +37,28 @@
                         'required'));
                         ?>
                         </div>
-                        <?php if ($val->error('password')): ?>
-                        <span class="help-block"><?php echo $val->error('password')->get_message(); ?></span>
-                        <?php endif; ?>
+                        <span class="help-block">
+                            <?php if ($val->error('password')): ?>
+                                <?php echo $val->error('password')->get_message(); ?>
+                            <?php endif; ?>
+                        </span>
                     </div>                    
 
                     <div class="row">
                         <div class="col-md-6">                     
                         </div>
                         <div class="col-md-6">
-                            <?php echo Form::submit('submit', 'CONNEXION', array('class' => 'btn btn-green btn-lg btn-bold radius pull-right')); ?>                     
+                            <?php echo Form::submit('submit', 'CONNEXION', array('class' => 'btn btn-primary btn-lg pull-right')); ?>                     
                         </div>
                     </div>
 
-                    <hr>
+        <?php echo Form::close(); ?>     
 
-                    <h4>Identifiants perdu ?</h4>
-                    <p><a class="color-green" href="identifiants_perdus">Identifiants perdus</a></p>
+        <hr />
+        <h4>Identifiants perdu ?</h4>
+        <p><b><a href="identifiants-perdus">Identifiants perdus</a></b></p>
+        <br />      
+    
+    </div>
 
-                <?php echo Form::close(); ?>           
-            </div>
-        </div><!--/row-->
-    </div><!--/container-->   
-    <!--=== End Content Part ===-->
+</div>

@@ -1,11 +1,11 @@
 <?php
-class Model_Todo extends \Orm\Model
-{
+class Model_Todo extends \Orm\Model {
+	
 	protected static $_properties = array(
 		'id',
 		'user_id',
 		'texte',
-		'fini',
+		'statut',
 		'created_at',
 		'updated_at',
 	);

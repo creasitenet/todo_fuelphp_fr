@@ -24,10 +24,6 @@ Contact: creasitenet@creasitenet.com
     <!-- CSS -->        
         <!-- Bootstrap // Variante slate --> 
         <?php echo Asset::css('bootstrap/css/bootstrap.css'); ?>
-
-        <!-- Google Font -->
-        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
        
         <!-- Plugins css  -->
         <?php echo Asset::css('font-awesome/css/font-awesome.min.css'); ?>
@@ -35,8 +31,7 @@ Contact: creasitenet@creasitenet.com
 
         <!-- Customs  -->
         <?php echo Asset::css('main.css'); ?>
-        <?php echo Asset::css('switch.css'); ?>
-
+        
         <!-- Js -->
         <?php echo Asset::js('jquery/jquery-2.1.1.min.js'); ?>
      
@@ -50,23 +45,15 @@ Contact: creasitenet@creasitenet.com
 </head>
 <body>
 
-    <!-- CONTAINER -->
-    <div id="container">
-        <?php echo render('_header'); ?>
-        <!-- Container -->
-        <div class="container">  
+    <!-- wrapper -->
+    <div class="wrapper">
+        <div class="container boxed">
+            <?php echo render('_header'); ?>
             <?php echo $content; ?>
         </div>
-        <!-- // Container -->
-        <?php echo render('_footer'); ?>
     </div>
-    <!-- // CONTAINER -->
-      
-    <!-- Preloader -->
-    <div class="preloader"> 
-        <?php echo Asset::img('preloader.gif'); ?>
-    </div>
-    
+    <!-- //wrapper -->
+          
     <!-- Js --> 
     <!-- Bootstrap -->   
     <?php echo Asset::js('bootstrap/js/bootstrap.min.js'); ?>

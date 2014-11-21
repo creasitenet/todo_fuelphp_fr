@@ -7,20 +7,18 @@ class Controller_Email extends Controller {
         $e = Model_User::find($id);
         if ($e) {
             $data['e'] = $e;
-            // Si pas hmvc (on veut voir le mail directement 
+            // Si pas hmvc (on veut voir le mail directement en se rendant sur email/nouveau_mot_de_passe
             if (!Request::is_hmvc()) {
                 $data['nouveau_mot_de_passe'] = 'non défini ici';
                 return View::forge('email/nouveau_mot_de_passe',$data);
             }
               
-            // Si hmvc (on veut envoyer le mail)
+            // envoi du mail
             if (Request::is_hmvc()) {
-                $coordonnees = Model_Site_Coordonnee::find('first');
                 $data['nouveau_mot_de_passe'] = $nouveau_mot_de_passe;
-                // On envoi le mail à l'administration
                 Package::load('email');
-                $email = Email::forge(); // instance
-                $email->from($coordonnees->email, $coordonnees->nom); // from
+                $email = Email::forge(); 
+                $email->from("from@hostname.com", "Todo"); // from
                 $email->to($e->email, $e->username); // to
                 $email->subject('Identifiants perdus'); // titre /subject
                 $email->html_body(View::forge('email/nouveau_mot_de_passe',$data));
