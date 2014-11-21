@@ -25,9 +25,6 @@ return array(
 	 * Set this to null to have it automatically detected.
 	 */
 	 'base_url'  => null,
-	 //null,
-	 //'base_url'  => 'http://127.0.0.1/maheboissel.com_fuelphp/',
-	 //'base_url'  => 'http://tonprfil.fr/',
 
 	/**
 	 * url_suffix - Any suffix that needs to be added to
@@ -48,8 +45,8 @@ return array(
 	'index_file' => false,
 
 	
-	//'profiling'  => true,
 	'profiling'  => false,
+	//'profiling'  => true,
 
 	/**
 	 * Default location for the file cache

@@ -6,7 +6,7 @@
 return array(
 	'default' => array(
 		'connection'  => array(
-			'dsn'        => 'mysql:host=127.0.0.1;dbname=todolist_ajax_fuelphp',
+			'dsn'        => 'mysql:host=127.0.0.1;dbname=todofuelphp',
 			'username'   => 'root',
 			'password'   => '',
 		),
