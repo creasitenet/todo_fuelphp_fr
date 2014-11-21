@@ -19,7 +19,7 @@ class Controller_Acces extends Controller_Base {
 			if ($val->run()) {
 				if ($this->auth->login(Input::post('username'), Input::post('password'))) {
 					$user = Model_User::find_by_username($this->auth->get_screen_name());
-					Session::set_flash('flash', e('Bienvenue, '.$user->username));
+					Session::set_flash('success', e('Bienvenue, '.$user->username));
 					Response::redirect('/');
 				} else {
 					Session::set_flash('error', e('Identifiants incorrects'));
@@ -53,7 +53,7 @@ class Controller_Acces extends Controller_Base {
 					try {
 		            	$auth = Auth::instance();
 		            	$nouveau_mot_de_passe = $auth->reset_password($e->username);
-						Session::set_flash('success_flash', "Mot de passe modifié et envoyé par email.");
+						Session::set_flash('success', "Mot de passe modifié et envoyé par email.");
 						$request = Request::forge('email/nouveau_mot_de_passe')->execute(array('id' => $e->id, 'nouveau_mot_de_passe' => $nouveau_mot_de_passe));
 					} catch (SimpleUserUpdateException $erreur) {
 						Session::set_flash('error', $erreur->getMessage());
