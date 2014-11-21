@@ -3,7 +3,6 @@
     <div class="col-sm-8 col-sm-offset-2">
          
         <h2>Inscrivez vous</h2>
-        <?php echo render('_alertes'); ?>
 
         <?php echo Form::open(array("action"=>"inscription","class"=>"form","autocomplete"=>"off")); ?>
 

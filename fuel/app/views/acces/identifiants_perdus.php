@@ -8,7 +8,6 @@
             Un email avec un nouveau mot de passe vous sera envoyé.
         </div>
 
-        <?php echo render('_alertes'); ?>
 
         <?php echo Form::open(array("action"=>"identifiants-perdus")); ?>
  

@@ -33,7 +33,7 @@ class Controller_Acces extends Controller_Base {
 
 	public function action_deconnexion() {
 		Auth::logout();
-		Session::set_flash('success_flash', e('Vous avez été déconnecté'));
+		Session::set_flash('success', e('Vous avez été déconnecté'));
 		Response::redirect(Uri::Base());
 	}
 

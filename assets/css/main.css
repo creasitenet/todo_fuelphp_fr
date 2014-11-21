@@ -93,6 +93,10 @@ clear: both;
 	vertical-align: middle;
 }
 
+#alertes{
+	margin-top: 5px;
+}
+
 .btn-border-radius-right {
 	border-radius: 0 5px 5px 0;
 	-webkit-border-radius: 0 5px 5px 0;
