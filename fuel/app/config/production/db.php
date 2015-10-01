@@ -6,7 +6,7 @@
 return array(
 	'default' => array(
 		'connection'  => array(
-			'dsn'        => 'mysql:host=127.0.0.1;dbname=todofuelphp',
+			'dsn'        => 'mysql:host=127.0.0.1;dbname=todo_fuelphp',
 			'username'   => 'root',
 			'password'   => '',
 		),
